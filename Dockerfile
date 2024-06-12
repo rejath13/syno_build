@@ -1,8 +1,7 @@
 # Use an official Node.js runtime as the base image
 #FROM node:16.15.0
-ENV PORT=${PORT}
-
 FROM node:16-bullseye-slim
+ENV PORT=${PORT}
 # Set the working directory within the container
 WORKDIR /home/admin-frontend
 
