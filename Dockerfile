@@ -1,6 +1,8 @@
 # Use an official Node.js runtime as the base image
-FROM node:16.15.0
+#FROM node:16.15.0
+ENV PORT=${PORT}
 
+FROM node:16-bullseye-slim
 # Set the working directory within the container
 WORKDIR /home/admin-frontend
 
@@ -8,10 +10,11 @@ WORKDIR /home/admin-frontend
 COPY . .
 
 # Install dependencies
-RUN npm install
+RUN npm install --force
 
 # Build the React app
 #RUN npm run build
+EXPOSE ${PORT}
 
 # Start the React app
 CMD ["npm", "start"]
